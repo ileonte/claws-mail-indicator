@@ -1,3 +1,9 @@
+/*
+ *
+ * https://developer.ubuntu.com/api/devel/ubuntu-12.04/c/appindicator/libappindicator-app-indicator.html
+ *
+ */
+
 #include <glib.h>
 #include <glib/gi18n.h>
 
