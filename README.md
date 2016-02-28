@@ -17,3 +17,4 @@
 **Screenshots**
 
 ![plasma-light](screenshots/plasma-light.png "Plasma Light")
+![plasma-light](screenshots/plasma-dark.png "Plasma Light")
