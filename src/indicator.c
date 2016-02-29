@@ -17,6 +17,7 @@
 #include <main.h>
 #include <viewtypes.h>
 #include <folderview.h>
+#include <toolbar.h>
 
 #include <libappindicator/app-indicator.h>
 
@@ -46,6 +47,7 @@ static guint hook_item_update;
 
 static inline void toggle_cb(void);
 static inline void quit_cb(void);
+static inline void get_mail_cb(void);
 
 static inline void show_main_window(MainWindow *mw)
 {
@@ -125,7 +127,7 @@ static inline GtkWidget *generate_menu(void)
 	menu = gtk_menu_new();
 
 	toggle_item = menu_item(menu, _("_Toggle"), "window-suppressed", G_CALLBACK(&toggle_cb), 0);
-	menu_item(menu, _("_Get mail"), "mail-receive", 0, 0);
+	menu_item(menu, _("_Get mail"), "mail-receive", G_CALLBACK(&get_mail_cb), 0);
 	separator(menu);
 	menu_item(menu, _("_Quit"), GTK_STOCK_QUIT, G_CALLBACK(&quit_cb), 0);
 
@@ -146,6 +148,11 @@ static inline void quit_cb(void)
 	if (mw->lock_count == 0) {
 		app_will_exit(0, mw);
 	}
+}
+
+static inline void get_mail_cb(void)
+{
+	inc_all_account_mail_cb(mainwindow_get_mainwindow(), 0, 0);
 }
 
 static inline void msg_count_update_cb(gpointer key, gpointer value, gpointer data)
