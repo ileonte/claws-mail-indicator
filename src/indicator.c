@@ -225,7 +225,7 @@ static inline void update_counts(FolderItem *removed)
 		gchar buff[1024] = {};
 		gchar gbuff[1024] = {};
 		g_snprintf(buff, sizeof(buff), _("%u unread message(s)"), msg_count.unread);
-		g_snprintf(buff, sizeof(buff), _("%u unread message(s)"), (guint)-1);
+		g_snprintf(gbuff, sizeof(gbuff), _("%u unread message(s)"), (guint)-1);
 		if (msg_count.unread) {
 			/* app_indicator_set_status(indicator, APP_INDICATOR_STATUS_ATTENTION); */
 			app_indicator_set_icon(indicator, PLUGIN_NEWMAILS_ICON);
